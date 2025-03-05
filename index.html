@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מערכת שליחת איש קשר</title>
+    <title>Razgal EV - שליחת פרטי קשר לווצאפ</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f9f9f9;
-            color: #333;
+            background-color: #1c1c1c;
+            color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,68 +16,63 @@
             margin: 0;
         }
         .container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(135deg, #e67e22, #d35400);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
             text-align: center;
             width: 90%;
-            max-width: 400px;
+            max-width: 450px;
         }
         h2 {
             margin-bottom: 20px;
-            color: #e67e22; /* כתום עסקי */
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
         }
         input[type="text"] {
             width: calc(100% - 24px);
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
+            padding: 12px;
+            margin: 15px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-size: 16px;
+            text-align: center;
         }
         button {
-            background-color: #e67e22; /* כתום עסקי */
+            background-color: #222;
             color: white;
-            padding: 10px 20px;
+            padding: 12px;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 18px;
             width: 100%;
-            margin-top: 10px;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
         }
         button:hover {
-            background-color: #d35400; /* כתום כהה יותר */
+            background-color: #444;
         }
         .footer {
             margin-top: 20px;
             font-size: 14px;
-            color: #888;
-        }
-        .footer a {
-            color: #e67e22; /* כתום עסקי */
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
+            opacity: 0.8;
         }
         .error {
-            color: #e74c3c; /* אדום */
+            color: #ff4c4c;
             margin-top: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>מערכת שליחת איש קשר</h2>
+        <h2>Razgal EV - מערכת עסקית לשליחת קישורים</h2>
         <input type="text" id="phoneNumber" placeholder="הזן מספר טלפון (לדוגמה: 054-3102000)" />
         <button onclick="sendWhatsApp()">שלח קישור</button>
         <div id="errorMessage" class="error"></div>
-        <div class="footer">
-            <p>Razgal EV - הקלות שבתדלוק, הפשטות בניהול.</p>
-            <p><a href="https://yeshcard.co/lxh" target="_blank">בקר באתר שלנו</a></p>
-        </div>
+        <div class="footer">&copy; 2025 Razgal EV - פתרונות אנרגיה חכמים</div>
     </div>
 
     <script>
@@ -87,7 +82,7 @@
 
             if (phoneNumber.length === 10 && phoneNumber.startsWith('05')) {
                 const internationalNumber = '972' + phoneNumber.slice(1);
-                const link = 'https://wa.me/' + internationalNumber + '?text=' + encodeURIComponent('שלום, הנה הקישור לכרטיס הביקור הדיגיטלי שלנו: https://yeshcard.co/lxh');
+                const link = 'https://wa.me/' + internationalNumber + '?text=' + encodeURIComponent('שלום, הנה הקישור לכרטיס הביקור של Razgal EV: https://yeshcard.co/lxh');
                 window.open(link, '_blank');
             } else {
                 document.getElementById('errorMessage').innerText = 'אנא הזן מספר טלפון ישראלי תקני.';
