@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מערכת שליחת איש קשר</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #e67e22; /* כתום עסקי */
+        }
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #e67e22; /* כתום עסקי */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #d35400; /* כתום כהה יותר */
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #888;
+        }
+        .footer a {
+            color: #e67e22; /* כתום עסקי */
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .error {
+            color: #e74c3c; /* אדום */
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>מערכת שליחת איש קשר</h2>
+        <input type="text" id="phoneNumber" placeholder="הזן מספר טלפון (לדוגמה: 054-3102000)" />
+        <button onclick="sendWhatsApp()">שלח קישור</button>
+        <div id="errorMessage" class="error"></div>
+        <div class="footer">
+            <p>Razgal EV - הקלות שבתדלוק, הפשטות בניהול.</p>
+            <p><a href="https://yeshcard.co/lxh" target="_blank">בקר באתר שלנו</a></p>
+        </div>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            const phoneInput = document.getElementById('phoneNumber').value.trim();
+            const phoneNumber = phoneInput.replace(/[^0-9]/g, '');
+
+            if (phoneNumber.length === 10 && phoneNumber.startsWith('05')) {
+                const internationalNumber = '972' + phoneNumber.slice(1);
+                const link = 'https://wa.me/' + internationalNumber + '?text=' + encodeURIComponent('שלום, הנה הקישור לכרטיס הביקור הדיגיטלי שלנו: https://yeshcard.co/lxh');
+                window.open(link, '_blank');
+            } else {
+                document.getElementById('errorMessage').innerText = 'אנא הזן מספר טלפון ישראלי תקני.';
+            }
+        }
+    </script>
+</body>
+</html>
