@@ -30,7 +30,7 @@
             font-weight: bold;
             text-transform: uppercase;
         }
-        input[type="text"] {
+        input[type="tel"] {
             width: calc(100% - 24px);
             padding: 12px;
             margin: 15px 0;
@@ -38,6 +38,8 @@
             border-radius: 6px;
             font-size: 16px;
             text-align: center;
+            inputmode: numeric;
+            pattern: "[0-9]*";
         }
         button {
             background-color: #222;
@@ -68,11 +70,12 @@
 </head>
 <body>
     <div class="container">
-        <h2>Razgal EV - מערכת עסקית לשליחת קישורים</h2>
-        <input type="text" id="phoneNumber" placeholder="הזן מספר טלפון (לדוגמה: 054-3102000)" />
+        <h2>Razgal EV -  שליחת פרטי קשר לווצאפ</h2>
+        <input type="tel" id="phoneNumber" placeholder="הזן מספר טלפון (לדוגמה: 054-3102000)" inputmode="numeric" pattern="[0-9]*">
         <button onclick="sendWhatsApp()">שלח קישור</button>
         <div id="errorMessage" class="error"></div>
         <div class="footer">&copy; 2025 Razgal EV - פתרונות אנרגיה חכמים</div>
+        <p style="margin-top: 10px; font-size: 14px;">אם אינך מצליח לפתוח את הקישור, יש להוסיף את המספר לאנשי הקשר ולנסות שוב.</p>
     </div>
 
     <script>
