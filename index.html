@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razgal EV - מערכת עסקית לשליחת קישורים</title>
+    <title>Razgal EV - שליחת פרטי קשר לווצאפ</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -52,7 +52,6 @@
             width: 100%;
             font-weight: bold;
             transition: all 0.3s ease-in-out;
-            margin-top: 10px;
         }
         button:hover {
             background-color: #444;
@@ -71,11 +70,12 @@
 </head>
 <body>
     <div class="container">
-        <h2>Razgal EV - מערכת עסקית לשליחת קישורים</h2>
+        <h2>Razgal EV -  שליחת פרטי קשר לווצאפ</h2>
         <input type="tel" id="phoneNumber" placeholder="הזן מספר טלפון (לדוגמה: 054-3102000)" inputmode="numeric" pattern="[0-9]*">
         <button onclick="sendWhatsApp()">שלח קישור</button>
         <div id="errorMessage" class="error"></div>
         <div class="footer">&copy; 2025 Razgal EV - פתרונות אנרגיה חכמים</div>
+        <p style="margin-top: 10px; font-size: 14px;">אם אינך מצליח לפתוח את הקישור, יש להוסיף את המספר לאנשי הקשר ולנסות שוב.</p>
     </div>
 
     <script>
@@ -85,13 +85,7 @@
 
             if (phoneNumber.length === 10 && phoneNumber.startsWith('05')) {
                 const internationalNumber = '972' + phoneNumber.slice(1);
-                const vcfData = `BEGIN:VCARD\nVERSION:3.0\nFN:יקי קורן - Razgal EV\nTEL;TYPE=cell:+972526084321\nEND:VCARD`;
-                const vcfBlob = new Blob([vcfData], { type: 'text/vcard' });
-                const vcfUrl = URL.createObjectURL(vcfBlob);
-                
-                const link = `https://wa.me/${internationalNumber}?text=` +
-                    encodeURIComponent(`שלום, הנה הקישור לכרטיס הביקור של Razgal EV: https://yeshcard.co/lxh \nבנוסף, להורדת איש הקשר: ${vcfUrl}`);
-                
+                const link = 'https://wa.me/' + internationalNumber + '?text=' + encodeURIComponent('שלום, הנה הקישור לכרטיס הביקור של Razgal EV: https://yeshcard.co/lxh');
                 window.open(link, '_blank');
             } else {
                 document.getElementById('errorMessage').innerText = 'אנא הזן מספר טלפון ישראלי תקני.';
